@@ -28,10 +28,10 @@ func TestDoubleStartScheduler(t *testing.T) {
 	)
 	r.NoError(err)
 
-	// Start the scheduler and print the next run time of the job
+	// Start the scheduler first time
 	scheduler.Start()
 
-	//create the job with start date in the past
+	//create the job with start date in 23h 58m
 
 	crontab := fmt.Sprintf("TZ=CET %d %d * * *", later.Minute(), later.Hour())
 
@@ -99,10 +99,10 @@ func TestJustFineWithoutDoubleStartScheduler(t *testing.T) {
 	)
 	r.NoError(err)
 
-	// Start the scheduler and print the next run time of the job
+	// Start the scheduler
 	scheduler.Start()
 
-	//create the job with start date in the past
+	//create the job with start date in 23h and 28 Minutes
 
 	crontab := fmt.Sprintf("TZ=CET %d %d * * *", later.Minute(), later.Hour())
 
