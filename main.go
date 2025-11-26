@@ -38,9 +38,16 @@ func main() {
 	// weird behaviour
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+	nextRuns, err := job.NextRuns(5)
+	if nextRuns[0].Equal(nextRuns[1]) {
+		spew.Dump(nextRuns)
+	} else {
+		fmt.Println("No double starts")
+	}
+
 	scheduler.Start()
 
-	nextRuns, err := job.NextRuns(5)
+	nextRuns, err = job.NextRuns(5)
 	if nextRuns[0].Equal(nextRuns[1]) {
 		spew.Dump(nextRuns)
 	}
